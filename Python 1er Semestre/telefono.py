@@ -1,0 +1,5 @@
+mensajes = int(input())
+megas = float(input())
+minutos = int(input())
+cobro = float(mensajes*0.8 + megas*0.8 + minutos*0.8)
+print(cobro)
