@@ -61,11 +61,13 @@ int insercion(vector<int> &vec) {
     for (int i = 1; i < tam; i++) {
         j = i;
         temp = vec[i];
-        cont++; // comparacion en falso
         while (j > 0 && temp < vec[j-1]) {
             cont++; // comparacion en verdadero
             vec[j] = vec[j-1];
             j--;
+        }
+        if (j != 0) {
+            cont++;
         }
         vec[j] = temp;
     }
@@ -80,10 +82,38 @@ int print(vector<int> &vec) {
     
 }
 
+int particion(vector<int> &vec, int ini, int fin, int &pivote) {
+    int elempivote = vec[ini], j = ini, cant = 0, temp;
+    for (int i = ini+1; i <= fin; i++) {
+        cant++;
+        if (vec[i] < elempivote) {
+            j++;
+            temp = vec[i];
+            vec[i] = vec[j];
+            vec[j] = temp;
+        }
+    }
+    pivote = j;
+    temp = vec[j];
+    vec[ini] =vec[pivote];
+    vec[pivote] = temp;
+    return cant;
+}
+
+int quick(vector<int> &v, int ini, int fin) {
+    int cant = 0, pivote;
+    if (ini < fin) {
+        cant += particion(v, ini, fin, pivote);
+        cant += quick(v, ini, pivote-1);
+        cant += quick(v, pivote+1, fin);
+    }
+    
+}
+
 int main() {
     int n, dato;
     cin >> n;
-    vector<int> vec1, vec2, vec3, vec4;
+    vector<int> vec1, vec2, vec3, vec4, vec5;
 
     for (int i = 0; i < n; i++) {
         cin >> dato;
@@ -91,6 +121,7 @@ int main() {
         vec2.push_back(dato);
         vec3.push_back(dato);
         vec4.push_back(dato);
+        vec5.push_back(dato);
     }
     cout << intercambio(vec1) << endl;
     cout << burbuja(vec2) << endl;
@@ -104,4 +135,6 @@ int main() {
     cout << print(vec3) << endl;
     cout << "Insercion: " << endl;
     cout << print(vec4) << endl;
+    cout << "Quick: " << endl;
+    cout << print(vec5) << endl;
 }
