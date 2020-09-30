@@ -12,7 +12,7 @@ int main(){
 	lista.addLast("ESTOY");
 	lista.print();
 	cout << "--------"<<endl;
-/*
+
 	lista.add("MTY",1);
 	lista.print();
 	cout << "--------"<<endl;
@@ -43,5 +43,5 @@ int main(){
 	lista.addLast(" :)");
 	lista.print();
 	cout << "--------"<<endl;
-	*/
+	
 }
