@@ -9,7 +9,7 @@ class NodeT {
         NodeT *getRight();
         void setRight(NodeT *right);
     private:
-        int data
+        int data;
         NodeT *left;
         NodeT *right;
 };

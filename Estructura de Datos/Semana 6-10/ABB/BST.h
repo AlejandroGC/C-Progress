@@ -9,6 +9,8 @@ class BST{
         void printPre();
     private:
         NodeT *root;
+        void preOrden(NodeT *r);
+        void destruye(NodeT *r);
 };
 
 BST::BST(){
@@ -16,7 +18,15 @@ BST::BST(){
 }
 
 BST::~BST(){
+    destruye(root);
+}
 
+void BST::destruye(NodeT *r){
+    if(r != nullptr){
+        destruye(r->getLeft());
+        destruye(r->getRight());
+        delete r;
+    }
 }
 
 void BST::add(int data){
@@ -58,6 +68,15 @@ bool BST::search(int data){
     return false;
 }
 
-void BST::printPre(){
+void BST::preOrden(NodeT *r) {
+    if(r != nullptr){
+        cout << r->getData() << " ";
+        preOrden(r->getLeft());
+        preOrden(r->getRight());
+    }
+}
 
+void BST::printPre(){
+    preOrden(root);
+    cout << endl;
 }
