@@ -1,3 +1,7 @@
+// Alejandro Daniel González Carrillo
+// A01570396
+// Act 3.1 - Operaciones avanzadas en un BST
+
 #include <iostream>
 #include <queue>
 #include <stack>
@@ -21,19 +25,21 @@ int main(){
 	miArbol.add(5);
 	miArbol.add(2);
 	miArbol.add(1);
+
 	cout << "Altura: " << miArbol.height() << endl;
 	cout << "Ancestros: ";
-	miArbol.printAncestors(18);
+	miArbol.ancestors(18);
 	cout << endl;
 	cout << "Nivel: " << miArbol.whatlevelamI(18) << endl;
+	cout << "Valor inexistente: " << miArbol.whatlevelamI(28) << endl;
 	cout << "Pre Orden: ";
-	miArbol.printPre();
+	miArbol.visit(1);
 	cout << "In Orden: ";
-	miArbol.printPre();
+	miArbol.visit(2);
 	cout << "Post Orden: ";
-	miArbol.printPost();
+	miArbol.visit(3);
 	cout << "Nivel Orden: ";
-	miArbol.printNivel();
+	miArbol.visit(4);
 	
 	// cout << "Cantidad de datos: "<< miArbol.size()<< endl;
 	// miArbol.remove(10);

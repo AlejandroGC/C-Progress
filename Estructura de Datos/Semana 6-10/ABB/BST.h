@@ -10,11 +10,11 @@ class BST{
 		void printIn();
 		void printPost();
 		void printNivel();
-		void printAncestors(int d);
+		void ancestors(int d);
 		int size();
 		void visit(int num);
 		int height();
-		void ancestors(int data, stack<int> &stk);
+		void ancestorsData(int data, stack<int> &stk);
 		int whatlevelamI(int data);
 	private:
 		NodeT *root;
@@ -30,14 +30,18 @@ class BST{
 		int helper(NodeT *r);
 };
 
+// Descripcion: El contructor
 BST::BST(){
 	root = nullptr;
 }
 
+// Descripcion: El destructor
 BST::~BST(){
 	destruye(root);
 }
 
+// Descripcion: Itera por todo el arbol y va borrando cada nodo.
+// Complejidad: O(n)
 void BST::destruye(NodeT *r){
 	if (r != nullptr){
 		destruye(r->getLeft());
@@ -46,6 +50,8 @@ void BST::destruye(NodeT *r){
 	}
 }
 
+// Descripcion: Regresa el nodo izquierdo 
+// Complejidad: O(n)
 int BST::succ(NodeT *r){
 	NodeT *curr = r->getRight();
 	while (curr->getLeft() != nullptr){
@@ -54,6 +60,8 @@ int BST::succ(NodeT *r){
 	return curr->getData();
 }
 
+// Descripcion: Regresa el nodo derecho 
+// Complejidad: O(n)
 int BST::pred(NodeT *r){
 	NodeT *curr = r->getLeft();
 	while (curr->getRight() != nullptr){
@@ -62,7 +70,8 @@ int BST::pred(NodeT *r){
 	return curr->getData();
 }
 
-
+// Descripcion: Añade un nodo y lo posiciona en donde va.
+// Complejidad: O(n)
 void BST::add(int data){
 	NodeT *curr = root;
 	NodeT *father = nullptr;
@@ -75,8 +84,7 @@ void BST::add(int data){
 	}
 	if (father == nullptr){
 		root = new NodeT(data);
-	}
-	else{
+	} else{
 /*
 		if (father->getData() > data){
 			father->setLeft(new NodeT(data));
@@ -91,6 +99,8 @@ void BST::add(int data){
 
 }
 
+// Descripcion: Cuenta cuantos hijos tiene el nodo en el que esta.
+// Complejidad: O(n)
 int BST::howManyChildren(NodeT *r){
 	int cont = 0;
 	if (r->getLeft() != nullptr){
@@ -101,6 +111,8 @@ int BST::howManyChildren(NodeT *r){
 	}
 	return cont;
 }
+
+// Descripcion: Remueve el nodo del dato que el usuario introduce
 
 void BST::remove(int data){
 	NodeT *curr = root;
@@ -168,7 +180,8 @@ void BST::remove(int data){
 	}
 }
 
-
+// Descripcion: Hace una busqueda por todo el arbol, itera sobre todos los nodos hasta que encuentra el que el usuario introdujo
+// Complejidad: O(n)
 bool BST::search(int data){
 	NodeT *curr = root;
 	while (curr != nullptr){
@@ -188,6 +201,7 @@ bool BST::search(int data){
 	return false;
 }
 
+// Descripcion: Recorre todo el arbol de manera de preOrden y despliega el arbol
 // Complejidad: O(n)
 void BST::preOrden(NodeT *r){
 	if (r != nullptr){
@@ -197,12 +211,14 @@ void BST::preOrden(NodeT *r){
 	}
 }
 
+// Descripcion: Imprime la funcion preOrden
 // Complejidad: O(n)
 void BST::printPre(){
 	preOrden(root);
 	cout << endl;
 }
 
+// Descripcion: Cuenta la cantidad de nodos dentro del arbol
 //Complejidad: O(n)
 int BST::count(NodeT *r){
 	if (r == nullptr){
@@ -211,6 +227,7 @@ int BST::count(NodeT *r){
 	return 1 + count(r->getLeft()) + count(r->getRight());
 }
 
+// Descripcion: Imprime la funcion count
 // Complejidad: O(n)
 int BST::size(){
 	return count(root);
@@ -220,6 +237,8 @@ int BST::size(){
 ////////////////////////////////////////////////////////// TAREA ///////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Descripcion: Regresará la altura del BST
+// Complejidad: O(n)
 int BST::helper(NodeT *r){
 	if(r == nullptr){
 		return 0;
@@ -235,11 +254,15 @@ int BST::helper(NodeT *r){
 	}
 }
 
+// Descripcion: Imprime la funcion helper que obtiene la altura del arbol
+// Complejidad: O(n)
 int BST::height(){
 	return helper(root);
 }
 
-void BST::ancestors(int data, stack<int> &stk){
+// Descripcion: 
+// Complejidad: O(n)
+void BST::ancestorsData(int data, stack<int> &stk){
 	NodeT *curr = root;
 	while (curr != nullptr){
 		if (curr->getData() == data){
@@ -257,9 +280,11 @@ void BST::ancestors(int data, stack<int> &stk){
 	}
 }
 
-void BST::printAncestors(int d){
+// Descripcion: Desplegará los ancestros de un dato, que estan guardados en un stack.
+// Complejidad: O(n)
+void BST::ancestors(int d){
 	stack<int> stk;
-	ancestors(d, stk);
+	ancestorsData(d, stk);
 	while (!stk.empty()) {
 		int n = stk.top();
 		cout << n << " ";
@@ -268,6 +293,8 @@ void BST::printAncestors(int d){
 	
 }
 
+// Descripcion: Regresará un entero que indica el nivel en que se encuentra un dato, o -1 en caso de que no se encuentre en el BST
+// Complejidad: O(n)
 int BST::whatlevelamI(int data){
 	NodeT *curr = root;
 	int c = 0;
@@ -289,10 +316,10 @@ int BST::whatlevelamI(int data){
 	return -1;
 }
 
+// Descripcion: Es un switch en donde el usuario decide que recorrido se le hace al arbol
+// Complejidad: O(n)
 void BST::visit(int num){
-	int opcion;
-	cin >> opcion;
-	switch (opcion) {
+	switch (num) {
 	case 1:
 		printPre();
 		break;
@@ -303,7 +330,7 @@ void BST::visit(int num){
 		printPost();
 		break;
 	case 4:
-		
+		printNivel();
 		break;
 	
 	default:
@@ -311,6 +338,7 @@ void BST::visit(int num){
 	}
 }
 
+// Descripcion: Recorre todo el arbol de manera de inOrden y despliega el arbol
 // Complejidad: O(n)
 void BST::inOrden(NodeT *r){
 	if (r != nullptr){
@@ -320,12 +348,14 @@ void BST::inOrden(NodeT *r){
 	}
 }
 
+// Descripcion: Imprime la funcion inOrden
 // Complejidad: O(n)
 void BST::printIn(){
 	inOrden(root);
 	cout << endl;
 }
 
+// Descripcion: Recorre todo el arbol de manera de postOrden y despliega el arbol
 // Complejidad: O(n)
 void BST::postOrden(NodeT *r){
 	if (r != nullptr){
@@ -335,12 +365,14 @@ void BST::postOrden(NodeT *r){
 	}
 }
 
+// Descripcion: Imprime la funcion postOrden
 // Complejidad: O(n)
 void BST::printPost(){
 	postOrden(root);
 	cout << endl;
 }
 
+// Descripcion: Genera un queue donde guarda todo los valores de cada nivel
 // Complejidad: O(n)
 void BST::nivelOrden(NodeT *r){
 	queue<NodeT*> Q;
@@ -355,7 +387,7 @@ void BST::nivelOrden(NodeT *r){
     }
 }
 
-
+// Descripcion: Imprime la funcion nivelOrden
 // Complejidad: O(n)
 void BST::printNivel(){
 	nivelOrden(root);
