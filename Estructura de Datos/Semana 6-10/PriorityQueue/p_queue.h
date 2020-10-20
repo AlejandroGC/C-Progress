@@ -5,22 +5,28 @@
 class Pqueue{
     public:
         Pqueue();
+        Pqueue(bool orden);
         void push(int dato);
         void pop();
         int top();
         bool empty();
         int size();
         void print();
+        bool comparaPadre(int datos);
 
     private:
         vector<int> datos;
+        bool orden;
 };
 
 // Descripcion: Constructor
 // Complejidad: O(1)
 Pqueue::Pqueue(){
     datos.push_back(-1010101010);
+    orden = 
 }
+
+bool Pqueue::
 
 // Descripcion: Agregue un dato a la fila priorizada.
 // Complejidad: O(log(n))
