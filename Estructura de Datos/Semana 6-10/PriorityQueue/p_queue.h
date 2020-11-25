@@ -12,18 +12,15 @@ class Pqueue{
         bool empty();
         int size();
         void print();
-        bool comparaPadre(int datos);
 
     private:
         vector<int> datos;
-        bool orden;
 };
 
 // Descripcion: Constructor
 // Complejidad: O(1)
 Pqueue::Pqueue(){
     datos.push_back(-1010101010);
-    orden = 
 }
 
 bool Pqueue::
