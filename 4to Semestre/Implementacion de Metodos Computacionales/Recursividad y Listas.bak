@@ -1,0 +1,21 @@
+#lang racket
+
+; (n * (n+1)) / 2
+(define (suma-1 n)
+  (/ (* n (+ n 1)) 2))
+
+; not-tail recursive
+(define (suma-2 n)
+  (if (= n 0)
+      0
+      (+ n (suma-2 (- n 1)))))
+
+;tail-recursive
+(define (suma-tail n a)
+  (if (= n 0)
+      a
+      (suma-tail (- n 1) (+ a n)))
+  )
+
+(define (suma-3 n)
+  (suma-tail n 0))

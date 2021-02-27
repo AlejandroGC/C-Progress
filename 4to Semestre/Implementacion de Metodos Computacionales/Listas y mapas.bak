@@ -1,0 +1,26 @@
+#lang racket
+
+(define (suma a b)
+  (+ a b))
+
+(define x 100)
+(define y 200)
+
+(define (area alt base)
+  (* alt base))
+(define (calc-area lalt lbase)
+  (map area lalt lbase))
+
+(define (cal-area-2 lalt lbase)
+  (map (lambda (alt base) (* alt base)) lalt lbase))
+
+(define lista1 (list 1 2 3 4 5 6 7 8))
+(define lista2 (list 100 200 300 400 500))
+(define lista3 (list 1 2 (list 3 4 5) 6 7 8 9 (list 10 (list 11 12 13 14 15)) 16))
+(define lista4 (list 1 2 (list 3 4) 5))
+
+;Cuenta los elem que tiene una lista
+(define (cuneta-elem lst)
+ (if (empty? lst)
+     0
+     ))

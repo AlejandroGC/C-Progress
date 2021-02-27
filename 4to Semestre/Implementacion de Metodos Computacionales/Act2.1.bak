@@ -1,0 +1,37 @@
+#lang racket
+
+;Arithmetic
+(+ 1 2)
+(* (+ 1 2) (+ 3 4))
+(/ 4 2)
+(- 1 2)
+
+;Defining
+(define (suma a b)
+  (+ a b))
+
+;Hicimos un template
+(define (oper op a b)
+  (op a b))
+
+(define (mayor a b)
+  (if (> a b) (display a) (display b)))
+
+(define (ejec x)
+  (cond
+   [(< x -1) (+ x 2)]
+   [(and (<= -1 x) (< x 0)) 1]
+   [(>= x 0) (+ (* x x -1) 1)]))
+
+(define (ftc f)
+  (/ (* 5 (- f 32)) 9))
+
+(define (bmi m a)
+  (define indice (/ m (* a a)))
+  (cond
+    [(< indice 20) (display "underweight")]
+    [(and (<= 20 indice) (< indice 25)) (display "normal")]
+    [(and (<= 25 indice) (< indice 30)) (display "obese1")]
+    [(and (<= 30 indice) (< indice 40)) (display "obese2")]
+    [(<= 40 indice) (display "obese3")]
+    ))
