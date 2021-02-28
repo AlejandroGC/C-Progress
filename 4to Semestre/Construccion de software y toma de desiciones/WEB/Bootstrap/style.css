@@ -1,0 +1,16 @@
+* {
+    height: 100%;
+    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+    /*font-family: 'Poppins', sans-serif;*/
+}
+
+#banner {
+    background-image: linear-gradient(to right, #e74c3c, #ffa500) !important;
+}
+
+#title {
+    font-size: 60px;
+    color: white;
+}
+
