@@ -13,18 +13,20 @@
 </head>
 <body class="bg-main">
     <div id="banner" class="container-fluid">
-        <div class="row p-5">
-            <div class="col">
+        <div class="row p-5 ">
+            <div class="d-flex navigation">
+                <div class="col align-self-start c-ternium">
                 <img src="img/logo-Ternium.png" alt="Logo Ternium">
             </div>
-            <div class="col text-end">
+                <div class="col text-end c-ternium pt-3">
                 <button class="btn btn-main">Admin View</button>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col text-center">
+            <div class=" text-center">
                 <h1 class="title">Ternium Quest</h1>
-                <div class="mx-auto" style="width: 28rem">
+                <div class="mx-auto card-template">
                     <div class="shadow p-3 mb-5 bg-body rounded card-body login-card-background">
                         <h3 class="subtitle-card">Comenzar</h3>
                         <div class="card-body login-card">
@@ -35,11 +37,14 @@
                                 <div class="col">
                                     <p class="register-tab">Register</p>
                                 </div>
-                                <div class="p-5 pt-0">
-                                    <div class="form-group p-2 justify-content-start">
-                                        <label for="" class="">Username:</label>
-                                        <input type="text" class="form-control">
+                                <div class="p-5 pt-0 pb-3">
+                                    <div class="p-2 pb-0 forms">
+                                        <label for="" class="login-label">Username:</label>
+                                        <input type="text" class="form-control text-input">
+                                        <label for="" class="login-label">Password:</label>
+                                        <input type="text" class="form-control text-input">
                                     </div>
+                                    <input type="submit" class="login-submit" value="Sign In">
                                 </div>
                             </div>
                           </div>

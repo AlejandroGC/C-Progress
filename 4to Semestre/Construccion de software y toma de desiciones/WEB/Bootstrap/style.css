@@ -1,3 +1,7 @@
+body {
+  font-family: subFont;
+}
+
 @font-face {
     font-family: mainFont;
     src: url(fonts/Trade.otf);
@@ -55,5 +59,91 @@
   font-family: mainFont;
   font-size: 150px;
   color: #ffa500;
+}
+
+.forms {
+  text-align: left;
+}
+
+.login-label {
+  padding-top: 10px;
+  color: white;
+}
+
+.text-input {
+  border: none !important;
+  border-radius: 20px !important;
+}
+
+.navigation-button {
+  
+}
+
+.login-submit {
+  margin-top: 20px;
+  padding: 5px 40px;
+  border-radius: 20px;
+  border: none;
+}
+
+.card-template {
+  width: 28rem
+}
+
+@media (max-width: 1100px) {
+  .title {
+    font-size: 100px;
+  }
+
+}
+
+@media (max-width: 776px) {
+  .title {
+    font-size: 70px;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .card-template {
+    width: 19rem
+  }
+
+  .subtitle-card {
+    font-size: 30px;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .navigation {
+    display: inline !important; 
+  }
+
+  .c-ternium {
+    margin: 10px;
+    text-align: center !important;
+  }
+
+  .navigation-button {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .card-template {
+    width: 19rem
+  }
+
+  .subtitle-card {
+    font-size: 30px;
+  }
+
+
+
 }
 
