@@ -1,16 +1,59 @@
-* {
-    height: 100%;
-    width: 100%;
-    font-family: 'Bebas Neue', cursive;
-    /*font-family: 'Poppins', sans-serif;*/
+@font-face {
+    font-family: mainFont;
+    src: url(fonts/Trade.otf);
+  }
+
+@font-face {
+  font-family: subFont;
+  src: url(fonts/subtitleTrade.otf);
 }
 
-#banner {
-    background-image: linear-gradient(to right, #e74c3c, #ffa500) !important;
+.bg-main {
+  background-color: #34495e !important;
 }
 
-#title {
-    font-size: 60px;
-    color: white;
+.btn-main {
+  color: white !important;
+  background-color: #34495e !important;
+  border-color: white !important;
+  border-radius: 30px;
+}
+
+.subtitle-card {
+  font-family: subFont;
+  font-size: 50px;
+  color: #34495e !important;
+}
+
+.login-card {
+  background-color: #34495e;
+  border-radius: .35rem;
+  padding: 0;
+}
+
+.login-card-background {
+  background-color: #ffa500 !important;
+  border: 1px solid rgba(0,0,0,.125) !important;
+  border-radius: .45rem;
+}
+
+.login-tab {
+  color: white;
+  background-color: #34495e !important;
+  padding: 10px;
+  border-radius: .25rem 0 .25rem 0;
+}
+
+.register-tab {
+  color: white;
+  background-color: #222f3d !important;
+  padding: 10px;
+  border-radius: 0 .25rem 0 .25rem;
+}
+
+.title {
+  font-family: mainFont;
+  font-size: 150px;
+  color: #ffa500;
 }
 
